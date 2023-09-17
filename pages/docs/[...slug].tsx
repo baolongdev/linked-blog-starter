@@ -66,7 +66,7 @@ export default function DocumentationPost(
               <PostSingle
                 title={post.title}
                 content={post.content}
-                date={post.date}
+                date={post.created}
                 author={post.author}
                 backlinks={backlinks}
               />

@@ -30,7 +30,7 @@ function PostList({ posts }: Props) {
                 <PostPreview
                   key={post.slug}
                   title={post.title}
-                  date={post.date}
+                  date={post.created}
                   excerpt={post.excerpt}
                   author={post.author}
                   slug={post.slug}

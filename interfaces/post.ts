@@ -5,7 +5,7 @@ type PostType = {
   excerpt: string
   title: string
   content: string
-  date?: string
+  created?: string // time created
   coverImage?: string
   author?: Author
   ogImage?: {
