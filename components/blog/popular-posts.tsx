@@ -9,21 +9,9 @@ export type PopularPostProps = {
 
 const popularPosts: PopularPostProps = [
   {
-    slug: "/posts/imagine-google-keep-with-obsidian-sync/",
-    title: "Imagine Google Keep with Bi-directional Sync to Obsidian"
+    slug: "/posts/Gioi-thieu-trang-web-E-Museum/",
+    title: "Giới thiệu trang web E-Museum"
   },
-  {
-    slug: "/posts/sync-fleeting-notes-with-obsidian/",
-    title: "How to Sync Fleeting Notes with Obsidian"
-  },
-  {
-    slug: "/posts/put-quick-notes-into-obsidian-from-anywhere/",
-    title: "Put quick notes into Obsidian from anywhere"
-  },
-  {
-    slug: "/posts/best-web-clipper-for-obsidian/",
-    title: "The Best Web Clipper for Obsidian"
-  }
 ]
 
 function PopularPosts() {
