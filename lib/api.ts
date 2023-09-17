@@ -21,8 +21,9 @@ export function getPostBySlug(slug: string, fields: string[] = []) {
   fields.forEach((field) => {
     if (field === 'slug') {
       items[field] = realSlug
+      
     }
-
+    
     if (typeof data[field] !== 'undefined') {
       items[field] = data[field]
     }
@@ -47,7 +48,8 @@ function parseFileToObj(pathToObj: string) {
     data['date'] = data['date']?.toISOString()
   } else if (typeof data['date'] !== 'undefined') {
     data['date'] = data['date'].toString()
-  }
+  }  
+
   return data
 }
 
@@ -56,7 +58,7 @@ export function getAllPosts(fields: string[] = []) {
   let posts = files
     .map((slug) => getPostBySlug(slug, fields))
     // sort posts by date in descending order
-    .sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
+    .sort((post1, post2) => (post1.date > post2.date ? -1 : 1))    
   return posts
 }
 
@@ -86,7 +88,7 @@ export function getSlugFromHref (currSlug: string, href: string) {
 export function updateMarkdownLinks(markdown: string, currSlug: string) {
   // remove `.md` from links
   markdown = markdown.replaceAll(/(\[[^\[\]]+\]\([^\(\)]+)(\.md)(\))/g, "$1$3");
-
+  
   // update image links
   markdown = markdown.replaceAll(/(\[[^\[\]]*\]\()([^\(\)]+)(\))/g, (m, m1, m2: string, m3) => {
     const slugDir = path.join(...currSlug.split(path.sep).slice(0, -1))
@@ -97,6 +99,7 @@ export function updateMarkdownLinks(markdown: string, currSlug: string) {
     const relAssetDir = path.relative('./public', process.env.MD_ASSET_DIR)
     const fileSlugRel = decodeURI(path.join(mdDir, relLink))
     const fileSlugAbs = decodeURI(path.join(mdDir, m2))
+    
     if (fs.existsSync(fileSlugRel)) {
       const imgPath = path.join(relAssetDir, relLink);
       return `${m1}/${imgPath}${m3}`

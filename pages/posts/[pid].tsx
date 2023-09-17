@@ -45,6 +45,7 @@ export const getStaticProps = async ({ params }: Params) => {
     'author',
     'coverImage',
     'excerpt',
+    'banner'
   ]);
   posts = filterPosts(posts);
   const pid = parseInt(params.pid)

@@ -7,7 +7,16 @@ type Props = {
   date?: string
   excerpt: string
   author?: Author
+  banner?: string
   slug: string
+}
+
+function extractContentFromDoubleBrackets(input) {
+  const match = input.match(/\!\[\[(.*?)\]\]/);
+  if (match && match[1]) {
+    return match[1];
+  }
+  return input; // Trả về chuỗi ban đầu nếu không có sự trùng khớp
 }
 
 const PostPreview = ({
@@ -16,9 +25,15 @@ const PostPreview = ({
   excerpt,
   author,
   slug,
+  banner
 }: Props) => {
+  banner = extractContentFromDoubleBrackets(banner)
+  
   return (
     <article className="flex items-center py-4 border-b border-gray-200 justify-between w-full">
+      <div className="max-w-[300px] overflow-hidden pr-8">
+          <img src={banner} alt=""/>
+      </div>
       <div>
         <header>
           <h2 className="h4 mb-2">

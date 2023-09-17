@@ -9,6 +9,8 @@ type Props = {
   content: string;
   date?: string;
   author?: Author;
+  banner?: string
+  banner_y?: string;
   backlinks: {
     [k: string]: {
       title: string;
@@ -23,16 +25,20 @@ function PostSingle({
   author,
   content,
   backlinks,
+  banner,
+  banner_y
 }: Props) {
   return (
     <div className="mx-auto mb-10 max-w-3xl">
       <article>
+        <div className="max-h-[300px] overflow-hidden">
+          <img src={banner} className="" style={{ transform: `translateY(-${parseFloat(banner_y) * 100}%)` }} alt=""/>
+        </div>
         {/* Article header */}
         <header className="mb-10 pt-0">
           {/* Title */}
           <h1 className="h1 text-center mb-4 text-6xl">{title}</h1>
         </header>
-
         {/* Article content */}
         <div>
           {/* Article meta */}

@@ -30,7 +30,7 @@ export default function DocumentationPost(
 ) {
   const router = useRouter();
   const description = post.excerpt.slice(0, 155);
-  const absUrl = path.join("https://fleetingnotes.app", router.asPath);
+  const absUrl = path.join("https://museum.blong12.com", router.asPath);
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
   }
@@ -69,6 +69,8 @@ export default function DocumentationPost(
                 date={post.date}
                 author={post.author}
                 backlinks={backlinks}
+                banner={post.banner}
+                banner_y={post.banner_y}
               />
             </div>
             <div className="max-w-3xl mx-auto">
@@ -92,6 +94,7 @@ type Params = {
 export async function getStaticProps({ params }: Params) {
   const slug = path.join(...params.slug);
   const docSlug = path.join("docs", slug);
+
   const post = getPostBySlug(docSlug, [
     "title",
     "excerpt",

@@ -11,11 +11,11 @@ import {Element} from 'hast-util-select'
 import { renderToStaticMarkup } from "react-dom/server"
 import NotePreview from '../components/misc/note-preview'
 import { fromHtml } from 'hast-util-from-html'
-
+import rehypeRaw from 'rehype-raw'
 
 export async function markdownToHtml(markdown: string, currSlug: string) {
   markdown = updateMarkdownLinks(markdown, currSlug);
-
+  
   // get mapping of current links
   const links = (getLinksMapping())[currSlug] as string[]
   const linkNodeMapping = new Map<string, Element>();
@@ -23,19 +23,21 @@ export async function markdownToHtml(markdown: string, currSlug: string) {
     const post = getPostBySlug(l, ['title', 'content']);
     const node = createNoteNode(post.title, post.content)
     linkNodeMapping[l] = node
-  }
 
+  }  
   const file = await unified()
     .use(remarkParse)
     .use(remarkGfm)
-    .use(remarkRehype)
-    .use(rehypeSanitize)
+    .use(remarkRehype, {allowDangerousHtml: true})
+    .use(rehypeRaw)
+    // .use(rehypeSanitize)
     .use(rehypeRewrite, {
       selector: 'a',
       rewrite: async (node) => rewriteLinkNodes(node, linkNodeMapping, currSlug)
     })
     .use(rehypeStringify)
     .process(markdown)
+    
   let htmlStr = file.toString()
   return htmlStr;
 }
@@ -53,6 +55,7 @@ export function createNoteNode(title: string, content: string) {
   const mdContentStr = getMDExcerpt(content, 500);
   const htmlStr = renderToStaticMarkup(NotePreview({ title, content: mdContentStr }))
   const noteNode = fromHtml(htmlStr);
+  
   return noteNode;
 }
 

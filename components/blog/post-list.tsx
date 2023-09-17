@@ -34,6 +34,7 @@ function PostList({ posts }: Props) {
                   excerpt={post.excerpt}
                   author={post.author}
                   slug={post.slug}
+                  banner={post.banner}
                 />
               ))}
             </div>
