@@ -16,13 +16,13 @@ function Footer() {
     <footer>
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         {/* Top area: Blocks */}
-          <div className="grid sm:grid-cols-12 pt-8 gap-8 md:pt-12 border-t border-gray-200">
+        <div className="grid sm:grid-cols-12 pt-8 gap-8 md:pt-12 border-t border-gray-200">
           {/* 1st block */}
           <div className=" sm:col-span-12 md:col-span-6">
             <div className="mb-2 flex gap-4">
               {/* Logo */}
               <Link href="/" className="inline-block" aria-label="Cruip">
-                <img className="w-8 h-8" src="/assets/logo-transparent.png"/>
+                <img className="w-8 h-8" src="/assets/logo-transparent.png" />
               </Link>
               <h2 className='shrink-0 mr-4 text-2xl font-bold tracking-tight md:tracking-tighter leading-tight'> E-Museum </h2>
             </div>
@@ -34,7 +34,7 @@ function Footer() {
               <Link href="[...slug]" as="faq" className="text-gray-600 hover:text-gray-900 hover:underline transition duration-150 ease-in-out">FAQ</Link>
             </div>
           </div>
-          <div className="sm:col-span-12 md:col-start-9 md:col-end-13 lg:col-start-10">
+          {/* <div className="sm:col-span-12 md:col-start-9 md:col-end-13 lg:col-start-10">
             <h6 className="text-gray-800 font-medium mb-2">Subscribe</h6>
             <p className="text-sm text-gray-600 mb-4">Nhận tin tức và bài viết mới nhất vào hộp thư đến của bạn mỗi tháng.</p>
             <form
@@ -53,14 +53,14 @@ function Footer() {
                       </svg>
                     </button>
                   </div>
-                  {/* Success message */}
+                  Success message
                   {newsletterSubbed && <p className="mt-2 text-green-600 text-sm">Thanks for subscribing!</p>}
                 </div>
               </div>
             </form>
-          </div>    
+          </div>     */}
 
-          </div>      
+        </div>
 
         {/* Bottom area */}
         <div className="md:flex md:items-center md:justify-between py-4 md:py-8">
