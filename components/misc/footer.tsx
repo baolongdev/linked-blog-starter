@@ -26,13 +26,13 @@ function Footer() {
               </Link>
               <h2 className='shrink-0 mr-4 text-2xl font-bold tracking-tight md:tracking-tighter leading-tight'> E-Museum </h2>
             </div>
-            <div className="text-sm text-gray-600">
+            {/* <div className="text-sm text-gray-600">
               <Link href="[...slug]" as="terms-and-conditions" className="text-gray-600 hover:text-gray-900 hover:underline transition duration-150 ease-in-out">Terms</Link>
               {" · "}
               <Link href="[...slug]" as="privacy-policy" className="text-gray-600 hover:text-gray-900 hover:underline transition duration-150 ease-in-out">Privacy Policy</Link>
               {" · "}
               <Link href="[...slug]" as="faq" className="text-gray-600 hover:text-gray-900 hover:underline transition duration-150 ease-in-out">FAQ</Link>
-            </div>
+            </div> */}
           </div>
           {/* <div className="sm:col-span-12 md:col-start-9 md:col-end-13 lg:col-start-10">
             <h6 className="text-gray-800 font-medium mb-2">Subscribe</h6>
