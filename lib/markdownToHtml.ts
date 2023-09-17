@@ -40,16 +40,17 @@ export async function markdownToHtml(markdown: string, currSlug: string) {
   return htmlStr;
 }
 
-export function getMDExcerpt(markdown: string, length: number = 500) {
+export function getMDExcerpt(markdown: string, length?: number) {
   const text = removeMd(markdown, {
     stripListLeaders: false, 
     gfm: true,
   }) as string
-  return text.slice(0, length).trim();
+
+  return (length) ? text.trim().slice(0, length) : text.trim();
 }
 
 export function createNoteNode(title: string, content: string) {
-  const mdContentStr = getMDExcerpt(content);
+  const mdContentStr = getMDExcerpt(content, 500);
   const htmlStr = renderToStaticMarkup(NotePreview({ title, content: mdContentStr }))
   const noteNode = fromHtml(htmlStr);
   return noteNode;

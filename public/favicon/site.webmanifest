@@ -1,14 +1,14 @@
 {
-  "name": "Next.js",
-  "short_name": "Next.js",
+  "name": "Fleeting Notes",
+  "short_name": "Fleeting Notes",
   "icons": [
     {
-      "src": "/favicons/android-chrome-192x192.png",
-      "sizes": "192x192",
+      "src": "/favicons/196.png",
+      "sizes": "196x196",
       "type": "image/png"
     },
     {
-      "src": "/favicons/android-chrome-512x512.png",
+      "src": "/favicons/512.png",
       "sizes": "512x512",
       "type": "image/png"
     }

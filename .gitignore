@@ -35,4 +35,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-/public/md_assets/**
+# markdown
+/public/md_assets/
+/common_md/
