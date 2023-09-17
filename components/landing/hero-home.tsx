@@ -47,7 +47,7 @@ const HeroHome = () => {
             <h1 className="text-6xl md:text-7xl font-extrabold leading-tight mb-4" data-aos="zoom-y-out">Bảo tàng số <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-900 to-purple-400">E-Museum</span></h1>
             <div className="max-w-3xl mx-auto">
               <p className="text-xl md:text-2xl text-gray-600 mb-8" data-aos="zoom-y-out" data-aos-delay="150">
-              E-Museum là một nền tảng trực tuyến hoặc ứng dụng dành riêng cho việc số hóa và truy cập các tài sản và triển lãm của bảo tàng.
+              E-Museum là một nền tảng trực tuyến hoặc ứng dụng dành riêng cho việc số hóa và truy cập các tài sản và triển lãm của bảo tàng hoàn toàn miễn phí.
               </p>
               <div className="max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center mb-4" data-aos="zoom-y-out" data-aos-delay="300">
                 <div>
