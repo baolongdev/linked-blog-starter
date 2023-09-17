@@ -6,9 +6,9 @@ function Comments() {
       <Giscus
         id="comments"
         repo="baolongdev/linked-blog-starter-md"
-        repoId="R_kgDOImOn5w"
-        category="Announcements"
-        categoryId="DIC_kwDOImOn584CTCQN"
+        repoId="R_kgDOKUbfMQ"
+        category="General"
+        categoryId="DIC_kwDOKUbfMc4CZYPR"
         mapping="pathname"
         reactionsEnabled="1"
         emitMetadata="0"
