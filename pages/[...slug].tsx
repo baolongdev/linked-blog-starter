@@ -56,7 +56,7 @@ export default function Post({ post, backlinks }: Props) {
             <PostSingle
               title={post.title}
               content={post.content}
-              date={post.created}
+              date={post.date}
               author={post.author}
               backlinks={backlinks}
             />
