@@ -1,21 +1,21 @@
 import { DefaultSeoProps } from "next-seo";
 
-const description = "Tired of manually transferring notes to Obsidian? Use Fleeting Notes to effortlessly capture your ideas and sync them with Obsidian."
+const description = "E-Museum là một nền tảng trực tuyến hoặc ứng dụng dành riêng cho việc số hóa và truy cập các tài sản và triển lãm của bảo tàng hoàn toàn miễn phí."
 // See https://www.npmjs.com/package/next-seo for more options
 const config: DefaultSeoProps = {
-  titleTemplate: "%s | Fleeting Notes",
-  defaultTitle: "Fleeting Notes | A scratchpad that syncs with Obsidian",
-  canonical: 'https://www.fleetingnotes.app/',
+  titleTemplate: "%s | E-Museum",
+  defaultTitle: "E-Museum | A scratchpad that syncs with Obsidian",
+  canonical: 'https://www.museum.blong12.com/',
   description,
   
   openGraph: {
     type: 'website',
     locale: 'en_IE',
-    title: 'Fleeting Notes',
+    title: 'E-Museum',
     description,
-    url: 'https://www.fleetingnotes.app/',
+    url: 'https://www.museum.blong12.com/',
     images: [{
-      url: 'https://www.fleetingnotes.app/favicon/og-image.png',
+      url: 'https://www.museum.blong12.com/favicon/og-image.png',
       width: 1200,
       height: 787,
       alt: 'Og Image Alt',

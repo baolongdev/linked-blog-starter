@@ -26,9 +26,7 @@ const PostPreview = ({
   author,
   slug,
   banner
-}: Props) => {
-  banner = extractContentFromDoubleBrackets(banner)
-  
+}: Props) => {   
   return (
     <article className="flex items-center py-4 border-b border-gray-200 justify-between w-full">
       <div className="max-w-[300px] overflow-hidden pr-8">

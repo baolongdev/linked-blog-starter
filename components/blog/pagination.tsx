@@ -20,7 +20,7 @@ function getPaginationArr(currPage: number, maxPage: number, numItems: number = 
 }
 
 function Pagination({ currPage, maxPage }: Props) {
-  const paginationArr = getPaginationArr(currPage, maxPage);
+  const paginationArr = getPaginationArr(currPage, maxPage);  
   return (
     <div className="flex justify-center mb-10">
         <ul className="inline-flex -space-x-px">
