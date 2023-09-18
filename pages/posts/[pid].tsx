@@ -34,7 +34,7 @@ const filterPosts = (posts: any[]) => {
   // console.log(posts.filter((post) => post.slug.startsWith('posts\\')));
   
   return posts
-    .filter((post) => post.slug.startsWith('posts/'))
+    .filter((post) => post.slug.startsWith('posts\\'))
     .sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
 }
 export const getStaticProps = async ({ params }: Params) => {
@@ -45,7 +45,8 @@ export const getStaticProps = async ({ params }: Params) => {
     'author',
     'coverImage',
     'excerpt',
-    'banner'
+    'banner',
+    'tags'
   ]);
   posts = filterPosts(posts);
   const pid = parseInt(params.pid)

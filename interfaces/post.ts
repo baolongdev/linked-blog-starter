@@ -8,6 +8,7 @@ type PostType = {
   date?: string
   banner?: string
   banner_y?: string
+  tags?: string[]
   coverImage?: string
   author?: Author
   ogImage?: {

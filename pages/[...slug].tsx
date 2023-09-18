@@ -53,7 +53,7 @@ export default function Post({ post, backlinks }: Props) {
               }],
             }}
           />
-          <PostWrapper className="max-w-2xl mx-auto px-4">
+          <PostWrapper className="max-w-4xl mx-auto px-4">
             <PostSingle
               title={post.title}
               content={post.content}
@@ -62,6 +62,7 @@ export default function Post({ post, backlinks }: Props) {
               backlinks={backlinks}
               banner={post.banner}
               banner_y={post.banner_y}
+              tags={post.tags}
             />
             <Comments />
           </PostWrapper>
@@ -98,16 +99,19 @@ export async function getStaticProps({ params }: Params) {
     "ogImage",
     "coverImage",
     "banner",
-    "banner_y"
+    "banner_y",
+    "tags",
   ]);
   const content = await markdownToHtml(post.content || "", slug);
   const linkMapping = await getLinksMapping();
   const backlinks = Object.keys(linkMapping).filter((k) =>
     linkMapping[k].includes(post.slug) && k !== post.slug
   );
-
-  post.banner = extractContentFromDoubleBrackets(post.banner)
-  post.author['picture'] = extractContentFromDoubleBrackets(post.author['picture'])
+  if (post.banner)
+    post.banner = extractContentFromDoubleBrackets(post.banner)
+  if (post.author && post.author['picture']) {
+    post.author['picture'] = extractContentFromDoubleBrackets(post.author['picture']);
+  }
   
   const backlinkNodes = Object.fromEntries(
     await Promise.all(backlinks.map(async (slug) => {

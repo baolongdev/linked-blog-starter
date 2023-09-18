@@ -17,7 +17,7 @@ function PostList({ posts }: Props) {
 
           {/* Page header */}
           <div className="max-w-3xl pb-12 md:pb-20 text-center md:text-left">
-            <h1 className="h1 mb-4">Recent Posts</h1>
+            <h1 className="h1 mb-4">Tin tức</h1>
             {/* <p className="text-xl text-gray-600">Posts are connected through <PreviewLink href="/notes/bi-directional-links">bi-directional links</PreviewLink>. Click any post and check it out!</p> */}
           </div>
 
@@ -35,6 +35,7 @@ function PostList({ posts }: Props) {
                   author={post.author}
                   slug={post.slug}
                   banner={post.banner}
+                  tags={post.tags}
                 />
               ))}
             </div>

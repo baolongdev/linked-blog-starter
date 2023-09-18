@@ -59,10 +59,10 @@ const Header = () => {
             <nav className="hidden md:flex md:grow">
 
               {/* Desktop menu links */}
-              <ul className="flex grow justify-end flex-wrap items-center">
-                {/* <li>
-                  <Link href="/pricing" className="text-gray-600 hover:text-gray-900 px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out">Pricing</Link>
-                </li> */}
+              <ul className="flex grow flex-wrap items-center">
+                <li>
+                  <Link href="/#" className="text-gray-600 hover:text-gray-900 px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out">Home</Link>
+                </li>
                 <li>
                   <Link href="/posts" className="text-gray-600 hover:text-gray-900 px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out">Blog</Link>
                 </li>              

@@ -58,7 +58,7 @@ function Search({ visible, setVisible }) {
   }, [router.asPath]);
 
   async function handleChangeInput(e) {
-    const res = await fetch(`/api/search?q=${e.target.value}`);
+    const res = await fetch(`/api/search?q=${e.target.value}`);    
     setSearchResults(await res.json());
   }
 
@@ -108,9 +108,11 @@ function Search({ visible, setVisible }) {
             key={res.item.slug}
             title={res.item.title}
             excerpt={res.item.excerpt}
+            author={res.item.author}
             slug={res.item.slug}
             date={res.item.date}
-            author={res.item.author}
+            banner={res.item.banner}
+            tags={res.item.tags}
           />
         ))}
       </div>

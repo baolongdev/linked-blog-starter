@@ -4,7 +4,7 @@ import { getAllPosts  } from '../../../lib/api'
 import { getMDExcerpt } from '../../../lib/markdownToHtml';
 
 const allPosts = getAllPosts([
-  "slug", "title", "content", "author", "date"
+  "slug", "title", "content", "author", "date", "banner", "tags"
 ]);
 const searchIndex = allPosts.map((p) => {
   return {
@@ -13,6 +13,8 @@ const searchIndex = allPosts.map((p) => {
     excerpt: getMDExcerpt(p.content),
     date: p.date,
     author: p.author,
+    banner: p.banner,
+    tags: p.tags,
   }
 });
 const searcher = new Searcher(searchIndex, {keySelector: (obj) => `${obj.title}\n${obj.excerpt}`})

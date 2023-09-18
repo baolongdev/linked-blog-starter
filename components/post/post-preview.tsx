@@ -8,15 +8,8 @@ type Props = {
   excerpt: string
   author?: Author
   banner?: string
+  tags?: string[]
   slug: string
-}
-
-function extractContentFromDoubleBrackets(input) {
-  const match = input.match(/\!\[\[(.*?)\]\]/);
-  if (match && match[1]) {
-    return match[1];
-  }
-  return input; // Trả về chuỗi ban đầu nếu không có sự trùng khớp
 }
 
 const PostPreview = ({
@@ -25,7 +18,8 @@ const PostPreview = ({
   excerpt,
   author,
   slug,
-  banner
+  banner,
+  tags
 }: Props) => {   
   return (
     <article className="flex items-center py-4 border-b border-gray-200 justify-between w-full">
@@ -41,8 +35,13 @@ const PostPreview = ({
         <div className="text-lg text-gray-600 mb-4 text-ellipsis">
           {excerpt.slice(0, 500)}
         </div>
-        <footer className="text-sm">
+        <footer className="text-sm flex justify-between">
           <PostMeta date={date} author={author} />
+          <div className="gap-2 flex">
+            {tags?.map((tag, index)=>(
+              <p key={index} className="hover:bg-blue-400 select-none cursor-pointer w-fit rounded-md bg-blue-500 text-white text-sm font-medium pl-2 pr-3 py-2 shadow-sm">{tag}</p>
+            ))}
+          </div>
         </footer>
       </div>
       <Link as={`/${slug}`} href="/[...slug]" className="block shrink-0 ml-6">

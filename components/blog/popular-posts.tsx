@@ -17,7 +17,7 @@ const popularPosts: PopularPostProps = [
 function PopularPosts() {
   return (
     <div className="mb-8">
-      <h4 className="text-lg font-bold leading-snug tracking-tight mb-4">Popular Posts</h4>
+      <h4 className="text-lg font-bold leading-snug tracking-tight mb-4">🔥Tin hot</h4>
       <ul className="-my-2">
         {popularPosts.map((post) => (
           <li className="flex py-2 border-b border-gray-200" key={post.slug}>
