@@ -4,7 +4,7 @@ const description = "E-Museum là một nền tảng trực tuyến hoặc ứng
 // See https://www.npmjs.com/package/next-seo for more options
 const config: DefaultSeoProps = {
   titleTemplate: "%s | E-Museum",
-  defaultTitle: "E-Museum | A scratchpad that syncs with Obsidian",
+  defaultTitle: "E-Museum | Bảo tàng số",
   canonical: 'https://www.museum.blong12.com/',
   description,
   
