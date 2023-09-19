@@ -1,6 +1,7 @@
 import Link from "next/link"
 import type Author from '../../interfaces/author'
 import PostMeta from "./post-meta"
+import DateFormatter from "../misc/date-formatter"
 
 type Props = {
   title: string
@@ -11,7 +12,13 @@ type Props = {
   tags?: string[]
   slug: string
 }
-
+function extractContentFromDoubleBrackets(input) {
+  const match = input.match(/\!\[\[(.*?)\]\]/);
+  if (match && match[1]) {
+    return match[1];
+  }
+  return input; // Trả về chuỗi ban đầu nếu không có sự trùng khớp
+}
 const PostPreview = ({
   title,
   date,
@@ -20,38 +27,47 @@ const PostPreview = ({
   slug,
   banner,
   tags
-}: Props) => {   
+}: Props) => {
   return (
-    <article className="flex items-center py-4 border-b border-gray-200 justify-between w-full">
-      <div className="max-w-[300px] overflow-hidden pr-8">
-          <img src={banner} alt=""/>
-      </div>
-      <div>
-        <header>
-          <h2 className="h4 mb-2">
-            <Link as={`/${slug}`} href="/[...slug]" className="hover:underline">{title}</Link>
-          </h2>
-        </header>
-        <div className="text-lg text-gray-600 mb-4 text-ellipsis">
-          {excerpt.slice(0, 500)}
+    <article className="flex flex-col-reverse md:flex-row border-b border-gray-300 py-12">
+      {/* data and author */}
+      <div className="text-muted text-sm md:text-base flex flex-row-reverse justify-end items-center gap-2 sm:flex-col sm:items-start sm:justify-start">
+        <div className="gap-2 flex pb-2">
+          {tags?.map((tag, index)=>(
+            <p key={index} className="hover:bg-blue-400 select-none cursor-pointer w-fit rounded-md bg-blue-500 text-white text-sm font-medium px-2 py-2 shadow-sm">{tag}</p>
+          ))}
         </div>
-        <footer className="text-sm flex justify-between">
-          <PostMeta date={date} author={author} />
-          <div className="gap-2 flex">
-            {tags?.map((tag, index)=>(
-              <p key={index} className="hover:bg-blue-400 select-none cursor-pointer w-fit rounded-md bg-blue-500 text-white text-sm font-medium pl-2 pr-3 py-2 shadow-sm">{tag}</p>
-            ))}
+        {!(date) ? null : (
+          <span>{<DateFormatter dateString={date} />}</span>
+        )}
+        {!(author) ? null : (
+          <div className="flex shrink-0 mr-3">
+            <div className="flex items-center gap-1.5 text-normal font-medium">
+              <img className="rounded-full" src={author.picture} width="32" height="32" alt="Author 04" />
+              <a className="font-medium hover:underline cursor-pointer">{author.name}</a>
+            </div>
           </div>
-        </footer>
+        )}
       </div>
-      <Link as={`/${slug}`} href="/[...slug]" className="block shrink-0 ml-6">
-        <span className="sr-only">Read more</span>
-        <svg className="w-4 h-4 fill-current text-blue-600" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-          <path d="M9.3 14.7l-1.4-1.4L12.2 9H0V7h12.2L7.9 2.7l1.4-1.4L16 8z" />
-        </svg>
-      </Link>
+
+      {/* Content */}
+      <div className="md:basis-3/4 md:ml-auto">
+          <div className="max-w-3xl">
+            <Link as={`/${slug}`} href="/[...slug]">
+              <img src={extractContentFromDoubleBrackets(banner)} className="object-cover aspect-[16/9] mt-0 mb-8 border border-gray-800 rounded-xl sm:rounded-3xl"/>
+            </Link>
+            <div className="text-2xl sm:text-3xl font-medium leading-tight mb-1">
+              <Link as={`/${slug}`} href="/[...slug]" className="hover:underline">{title}</Link>
+            </div>
+            <div className="py-4 typeset">
+              {excerpt.slice(0, 200)}
+            </div>
+            <Link as={`/${slug}`} href="/[...slug]" className="hidden sm:block leading-tight w-fit mb-1 hover:underline">Read more →</Link>
+          </div>
+      </div>
     </article>
   )
 }
 
 export default PostPreview;
+

@@ -22,7 +22,7 @@ const config: DefaultSeoProps = {
     }]
   },
   twitter: {
-    site: '@fleetingnotes_',
+    site: '@__BLong12__',
     cardType: 'summary_large_image',
   },
   additionalLinkTags: [

@@ -50,7 +50,7 @@ export default function DocumentationPost(
               images: [{
                 url: (post.ogImage?.url)
                   ? post.ogImage.url
-                  : "https://fleetingnotes.app/favicon/512.png",
+                  : "https://museum.blong12.com/favicon/512.png",
                 width: (post.ogImage?.url) ? null : 512,
                 height: (post.ogImage?.url) ? null : 512,
                 type: null,

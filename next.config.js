@@ -7,6 +7,11 @@ module.exports = {
         permanent: true,
       },
       {
+        source: '/canvas',
+        destination: '/canvas/1',
+        permanent: true,
+      },
+      {
         source: '/docs',
         destination: '/docs/getting-started/introduction',
         permanent: true,

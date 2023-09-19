@@ -42,7 +42,7 @@ function PostSingle({
           <h1 className="h1 text-center mb-4 text-6xl">{title}</h1>
           <div className="gap-2 flex">
             {tags?.map((tag, index)=>(
-              <p key={index} className="hover:bg-blue-400 select-none cursor-pointer w-fit rounded-md bg-blue-500 text-white text-sm font-medium pl-2 pr-3 py-2 shadow-sm">{tag}</p>
+              <p key={index} className="hover:bg-blue-400 select-none cursor-pointer w-fit rounded-md bg-blue-500 text-white text-sm font-medium px-3 py-2 shadow-sm">{tag}</p>
             ))}
           </div>
         </header>

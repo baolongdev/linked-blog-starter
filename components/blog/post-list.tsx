@@ -18,7 +18,7 @@ function PostList({ posts }: Props) {
           {/* Page header */}
           <div className="max-w-3xl pb-12 md:pb-20 text-center md:text-left">
             <h1 className="h1 mb-4">Tin tức</h1>
-            {/* <p className="text-xl text-gray-600">Posts are connected through <PreviewLink href="/notes/bi-directional-links">bi-directional links</PreviewLink>. Click any post and check it out!</p> */}
+            <hr className="w-full h-px pt-px bg-gray-200 border-1 my-6"/>
           </div>
 
           {/* Main content */}
