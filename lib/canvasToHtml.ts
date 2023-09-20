@@ -54,6 +54,7 @@ function handleCanvasDrag(canvas: HTMLCanvasElement, canvasData: CanvasData) {
     let isDragging = false;
     let startX = 0;
     let startY = 0;
+    let scale = 1.0; // Initialize scale to 1.0
 
     // Keep track of the initial positions of all nodes
     const initialNodePositions = new Map<string, { x: number; y: number }>();
@@ -79,8 +80,8 @@ function handleCanvasDrag(canvas: HTMLCanvasElement, canvasData: CanvasData) {
             canvasData.nodes.forEach(node => {
                 const initialPosition = initialNodePositions.get(node.id);
                 if (initialPosition) {
-                    node.x = initialPosition.x + deltaX;
-                    node.y = initialPosition.y + deltaY;
+                    node.x = initialPosition.x + deltaX / scale;
+                    node.y = initialPosition.y + deltaY / scale;
                 }
             });
 
@@ -100,5 +101,41 @@ function handleCanvasDrag(canvas: HTMLCanvasElement, canvasData: CanvasData) {
 
     canvas.addEventListener("mouseleave", () => {
         isDragging = false;
+    });
+
+    canvas.addEventListener("wheel", (e) => {
+        if (e.ctrlKey) {
+            e.preventDefault();
+
+            // Calculate the scaling center
+            const scalingCenterX = e.clientX - canvas.getBoundingClientRect().left;
+            const scalingCenterY = e.clientY - canvas.getBoundingClientRect().top;
+
+            // Adjust the scale based on scroll direction
+            const scaleFactor = e.deltaY > 0 ? 0.9 : 1.1; // You can adjust the scaling factor
+
+            // Update the scale value
+            scale *= scaleFactor;
+
+            // Iterate through the nodes and adjust their positions
+            canvasData.nodes.forEach(node => {
+                // Calculate the new positions relative to the scaling center
+                const relativeX = node.x - scalingCenterX;
+                const relativeY = node.y - scalingCenterY;
+
+                // Scale the positions
+                const scaledRelativeX = relativeX * scaleFactor;
+                const scaledRelativeY = relativeY * scaleFactor;
+
+                // Calculate the new absolute positions
+                node.x = scalingCenterX + scaledRelativeX;
+                node.y = scalingCenterY + scaledRelativeY;
+                node.width *= scaleFactor;
+                node.height *= scaleFactor;
+            });
+
+            // Redraw the canvas with updated positions
+            drawCanvas(canvas, canvasData);
+        }
     });
 }
