@@ -1,0 +1,11 @@
+{
+	"nodes":[
+		{"id":"22fd000e368d81a7","type":"group","x":-280,"y":-300,"width":400,"height":420,"label":"Untitled group"},
+		{"id":"eb10bdefe6a89f7f","type":"group","x":180,"y":-300,"width":400,"height":420,"label":"Untitled group"},
+		{"id":"2714860268b23086","type":"text","text":"test","x":-260,"y":-260,"width":250,"height":60},
+		{"id":"3d8936967f1e1bb4","x":-260,"y":-160,"width":250,"height":52,"type":"file","file":"remote/publish/assets/banner/vercel-project-id.png"},
+		{"id":"7334aeb2d9b0b42c","type":"text","text":"test","x":200,"y":-260,"width":250,"height":60},
+		{"id":"c7f9c1718ee4e2af","type":"file","file":"remote/publish/assets/banner/vercel-project-id.png","x":200,"y":-160,"width":250,"height":52}
+	],
+	"edges":[]
+}
