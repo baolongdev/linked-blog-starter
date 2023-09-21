@@ -12,13 +12,7 @@ type Props = {
   tags?: string[]
   slug: string
 }
-function extractContentFromDoubleBrackets(input) {
-  const match = input.match(/\!\[\[(.*?)\]\]/);
-  if (match && match[1]) {
-    return match[1];
-  }
-  return input; // Trả về chuỗi ban đầu nếu không có sự trùng khớp
-}
+
 const PostPreview = ({
   title,
   date,
@@ -54,7 +48,7 @@ const PostPreview = ({
       <div className="md:basis-3/4 md:ml-auto">
           <div className="max-w-3xl">
             <Link as={`/${slug}`} href="/[...slug]">
-              <img src={extractContentFromDoubleBrackets(banner)} className="object-cover aspect-[16/9] mt-0 mb-8 border border-gray-800 rounded-xl sm:rounded-3xl"/>
+              <img src={banner} className="object-cover aspect-[16/9] mt-0 mb-8 border border-gray-800 rounded-xl sm:rounded-3xl"/>
             </Link>
             <div className="text-2xl sm:text-3xl font-medium leading-tight mb-1">
               <Link as={`/${slug}`} href="/[...slug]" className="hover:underline">{title}</Link>

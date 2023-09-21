@@ -79,14 +79,6 @@ type Params = {
   };
 };
 
-function extractContentFromDoubleBrackets(input) {
-  const match = input.match(/\!\[\[(.*?)\]\]/);
-  if (match && match[1]) {
-    return match[1];
-  }
-  return input; // Trả về chuỗi ban đầu nếu không có sự trùng khớp
-}
-
 export async function getStaticProps({ params }: Params) {
   const slug = path.join(...params.slug);
   const post = await getPostBySlug(slug, [
@@ -106,13 +98,7 @@ export async function getStaticProps({ params }: Params) {
   const linkMapping = await getLinksMapping();
   const backlinks = Object.keys(linkMapping).filter((k) =>
     linkMapping[k].includes(post.slug) && k !== post.slug
-  );
-  if (post.banner)
-    post.banner = extractContentFromDoubleBrackets(post.banner)
-  if (post.author && post.author['picture']) {
-    post.author['picture'] = extractContentFromDoubleBrackets(post.author['picture']);
-  }
-  
+  );  
   const backlinkNodes = Object.fromEntries(
     await Promise.all(backlinks.map(async (slug) => {
       const post = await getPostBySlug(slug, ["title", "excerpt"]);

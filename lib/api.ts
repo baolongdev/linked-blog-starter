@@ -8,6 +8,7 @@ const mdDir = path.join(process.cwd(), process.env.COMMON_MD_DIR)
 
 export function getPostBySlug(slug: string, fields: string[] = []) {
   const realSlug = slug.replace(/\.md$/, '')
+  const pathfile = slug.replace(/\\[^\\]+$/, '')
   const fullPath = path.join(mdDir, `${realSlug}.md`)
   const data = parseFileToObj(fullPath);
 
@@ -18,14 +19,22 @@ export function getPostBySlug(slug: string, fields: string[] = []) {
   const items: Items = {}
 
   // Ensure only the minimal needed data is exposed
-  fields.forEach((field) => {
+  fields.forEach((field) => {    
     if (field === 'slug') {
       items[field] = realSlug
-      
     }
-    
+
     if (typeof data[field] !== 'undefined') {
-      items[field] = data[field]
+      if (typeof data[field] === 'string') {
+        data[field] = data[field].replace(/\!\[\[(.*?)\]\]/, (match, capturedContent) => {
+          const relAssetDir = path.relative('./public', process.env.MD_ASSET_DIR)
+          const fileSlugRel = decodeURI(path.join(mdDir,pathfile, capturedContent))
+          return fileSlugRel;
+        })
+        items[field] = data[field];
+      }else {
+        items[field] = data[field];
+      }
     }
   })
   return items
@@ -48,8 +57,7 @@ function parseFileToObj(pathToObj: string) {
     data['date'] = data['date']?.toISOString()
   } else if (typeof data['date'] !== 'undefined') {
     data['date'] = data['date'].toString()
-  }  
-
+  }    
   return data
 }
 
