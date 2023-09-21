@@ -28,7 +28,7 @@ export function getPostBySlug(slug: string, fields: string[] = []) {
       if (typeof data[field] === 'string') {
         data[field] = data[field].replace(/\!\[\[(.*?)\]\]/, (match, capturedContent) => {
           const relAssetDir = path.relative('./public', process.env.MD_ASSET_DIR)
-          const fileSlugRel = decodeURI(path.join(mdDir,pathfile, capturedContent))
+          const fileSlugRel = decodeURI(path.join(relAssetDir, pathfile, capturedContent))
           return fileSlugRel;
         })
         items[field] = data[field];
