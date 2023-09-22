@@ -31,6 +31,7 @@ export function getPostBySlug(slug: string, fields: string[] = []) {
           const fileSlugRel = decodeURI(path.join(relAssetDir, pathfile, capturedContent))
           return fileSlugRel;
         })
+        console.log(data[field]);
         items[field] = data[field];
       }else {
         items[field] = data[field];
