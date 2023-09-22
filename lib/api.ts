@@ -28,8 +28,8 @@ export function getPostBySlug(slug: string, fields: string[] = []) {
     if (typeof data[field] !== 'undefined') {
       if (typeof data[field] === 'string') {
         data[field] = data[field].replace(/\!\[\[(.*?)\]\]/, (match, capturedContent) => {
-          // const relAssetDir = path.relative('./public', process.env.MD_ASSET_DIR)
-          const fileSlugRel = path.join("/", pathfile, capturedContent)
+          const relAssetDir = path.relative('./public', process.env.MD_ASSET_DIR)
+          const fileSlugRel = path.join("/",relAssetDir, pathfile, capturedContent)
           return fileSlugRel;
         })
         console.log(data[field]);
