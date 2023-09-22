@@ -8,7 +8,7 @@ const mdDir = path.join(process.cwd(), process.env.COMMON_MD_DIR)
 
 export function getPostBySlug(slug: string, fields: string[] = []) {
   const realSlug = slug.replace(/\.md$/, '')
-  const pathfile = slug.replace(/\\[^\\]+$/, '')
+  const pathfile = slug.replace(/[^\\]+$/, '')
   const fullPath = path.join(mdDir, `${realSlug}.md`)
   const data = parseFileToObj(fullPath);
 
@@ -31,7 +31,6 @@ export function getPostBySlug(slug: string, fields: string[] = []) {
           const fileSlugRel = decodeURI(path.join(relAssetDir, pathfile, capturedContent))
           return fileSlugRel;
         })
-        console.log(data[field]);
         items[field] = data[field];
       }else {
         items[field] = data[field];
