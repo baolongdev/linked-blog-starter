@@ -117,7 +117,7 @@ function FeaturesHome() {
                   leaveEnd="opacity-0 -translate-y-16"
                 >
                   <div className="relative inline-flex flex-col">
-                    <img className="md:max-w-none mx-auto rounded w-full" src="assets/Try-App-Scanner.gif" /> 
+                    <img className="md:max-w-none mx-auto rounded w-full" src="assets/Try_App_Scanner.gif" /> 
                   </div>
                 </Transition>
                 {/* Item 3 */}
