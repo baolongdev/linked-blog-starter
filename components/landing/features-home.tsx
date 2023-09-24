@@ -35,8 +35,8 @@ function FeaturesHome() {
             {/* Content */}
             <div className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-7 lg:col-span-6 md:mt-6" data-aos="fade-right">
               <div className="md:pr-4 lg:pr-12 xl:pr-16 mb-8">
-                <h3 className="h3 mb-3">Everything you need for quick capture</h3>
-                <p className="text-xl text-gray-600">Take your workflow to the next level and make quick capture actually quick</p>
+                <h3 className="h3 mb-3">Tính năng nổi bật</h3>
+                {/* <p className="text-xl text-gray-600">Take your workflow to the next level and make quick capture actually quick</p> */}
               </div>
               {/* Tabs buttons */}
               <div className="mb-8 md:mb-0">
@@ -45,8 +45,8 @@ function FeaturesHome() {
                   onClick={(e) => { e.preventDefault(); setTab(1); }}
                 >
                   <div>
-                    <div className="font-bold leading-snug tracking-tight mb-1">Capture Ideas Anytime, Anywhere</div>
-                    <div className="text-gray-600">Create and sync fleeting notes on the web, in your phone, or even within a browser extension</div>
+                    <div className="font-bold leading-snug tracking-tight mb-1">Hiện đại, đơn giản, dễ sử dụng</div>
+                    <div className="text-gray-600">Trang web được thiết kế chuyên nghiệp, giao diện đẹp, khoa học</div>
                   </div>
                   <div className="flex justify-center items-center w-8 h-8 bg-white rounded-full shadow shrink-0 ml-3">
                     <svg className="w-3 h-3 fill-current" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
@@ -59,8 +59,8 @@ function FeaturesHome() {
                   onClick={(e) => { e.preventDefault(); setTab(2); }}
                 >
                   <div>
-                    <div className="font-bold leading-snug tracking-tight mb-1">Keep track of any source</div>
-                    <div className="text-gray-600">Highlight text, share links, and paste images/files directly into Fleeting Notes</div>
+                    <div className="font-bold leading-snug tracking-tight mb-1">Tạo đối tượng 3D - Hình ảnh | Video</div>
+                    <div className="text-gray-600">Cung cấp quy trình hoạt động đơn giản, kết quả nhanh chóng, độ chi tiết cao</div>
                   </div>
                   <div className="flex justify-center items-center w-8 h-8 bg-white rounded-full shadow shrink-0 ml-3">
                     <svg className="w-3 h-3 fill-current" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
@@ -73,8 +73,8 @@ function FeaturesHome() {
                   onClick={(e) => { e.preventDefault(); setTab(3); }}
                 >
                   <div>
-                    <div className="font-bold leading-snug tracking-tight mb-1">Built for Obsidian MD</div>
-                    <div className="text-gray-600">Use the "Fleeting Notes Sync" Obsidian plugin to sync and process your notes</div>
+                    <div className="font-bold leading-snug tracking-tight mb-1">Quản lý</div>
+                    <div className="text-gray-600">Sử dụng Obsidian để đồng bộ hóa và xử lý bài đăng cho phép mỗi bảo tàng quản lý và tùy chỉnh nội dung, tài liệu, và trải nghiệm trang web của họ dành cho người tham quan</div>
                   </div>
                   <div className="flex justify-center items-center w-8 h-8 bg-white rounded-full shadow shrink-0 ml-3">
                     <svg className="w-3 h-3 fill-current" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
@@ -117,7 +117,7 @@ function FeaturesHome() {
                   leaveEnd="opacity-0 -translate-y-16"
                 >
                   <div className="relative inline-flex flex-col">
-                    <img className="md:max-w-none mx-auto rounded w-full" src="assets/source.gif" /> 
+                    <img className="md:max-w-none mx-auto rounded w-full" src="assets/Try-App-Scanner.gif" /> 
                   </div>
                 </Transition>
                 {/* Item 3 */}

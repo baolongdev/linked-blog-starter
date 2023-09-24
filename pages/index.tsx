@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <Layout>
       <HeroHome />
-      {/* <FeaturesHome /> */}
+      <FeaturesHome />
       {/* <FeaturesBlocks /> */}
       {/* <TestimonialsHome /> */}
       <Cta />
