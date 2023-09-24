@@ -66,9 +66,9 @@ const Header = () => {
                 <li>
                   <Link href="/posts" className="text-gray-600 hover:text-gray-900 px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out">Blog</Link>
                 </li>              
-                <li>
+                {/* <li>
                   <Link href="/project" className="text-gray-600 hover:text-gray-900 px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out">Project</Link>
-                </li>              
+                </li>               */}
                 {/* <li>
                   <Link href="https://docs.fleetingnotes.app" className="text-gray-600 hover:text-gray-900 px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out">Docs</Link>
                 </li>              
