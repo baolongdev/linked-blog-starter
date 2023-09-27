@@ -62,6 +62,7 @@ export default function Post({ post, backlinks }: Props) {
               backlinks={backlinks}
               banner={post.banner}
               banner_y={post.banner_y}
+              audio={post.audio}
               tags={post.tags}
             />
             <Comments />
@@ -92,6 +93,7 @@ export async function getStaticProps({ params }: Params) {
     "coverImage",
     "banner",
     "banner_y",
+    "audio",
     "tags",
   ]);
   const content = await markdownToHtml(post.content || "", slug);

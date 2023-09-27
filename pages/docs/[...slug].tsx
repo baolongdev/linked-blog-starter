@@ -71,6 +71,7 @@ export default function DocumentationPost(
                 backlinks={backlinks}
                 banner={post.banner}
                 banner_y={post.banner_y}
+                audio={post.audio}
               />
             </div>
             <div className="max-w-3xl mx-auto">

@@ -11,6 +11,7 @@ type Props = {
   author?: Author;
   banner?: string
   banner_y?: string;
+  audio?: string;
   tags?: string[];
   backlinks: {
     [k: string]: {
@@ -28,6 +29,7 @@ function PostSingle({
   backlinks,
   banner,
   banner_y,
+  audio,
   tags
 }: Props) {  
   return (
@@ -45,6 +47,10 @@ function PostSingle({
               <p key={index} className="hover:bg-blue-400 select-none cursor-pointer w-fit rounded-md bg-blue-500 text-white text-sm font-medium px-3 py-2 shadow-sm">{tag}</p>
             ))}
           </div>
+          <audio controls autoPlay className="w-full mt-5">
+            <source src={audio} type="audio/mpeg" />
+            Your browser does not support the audio element.
+          </audio>
         </header>
         {/* Article content */}
         <div>
